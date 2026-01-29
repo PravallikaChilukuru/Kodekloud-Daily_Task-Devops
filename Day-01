@@ -1,0 +1,61 @@
+Day 1: Linux User Setup with Non-Interactive Shell
+
+Problem Statement:
+To accommodate the backup agent tool's specifications, the system admin team at xFusionCorp Industries requires the creation of a user with a non-interactive shell. Here's your task:
+Create a user named jim with a non-interactive shell on App Server 1.
+
+Learning:
+Non-interactive shell:
+	--The shell is used only to run a specific script or a background program. There is no prompt, and it doesn't wait for a human to type anything. It just does its job and closes.
+	--Like a vending machine. You press a button (start a script), the machine drops the snack (runs the code), and it's done. You don't "talk" to the machine's internal computer.
+	
+	
+Interactive shell:
+	--You type a command, the computer does it and shows you the result, then waits for you to type something else.
+	--Like a conversation. You ask "Where is the file?", the computer says "In the home folder," and then asks "What next?"
+		
+
+Non-interactive shell useradditon: 
+	/sbin/nologin shell is a "polite" way to refuse a login. This is the standard procedure for service accounts like backup agents to improve security server.
+
+Solution:
+
+
+Explanation:
+Think of this command as creating a restricted-access key for your computer.
+
+Usually, when you create a user, they get a "front door" key that lets them walk in and use the computer. This command creates a user that can work inside the house but is forbidden from coming through the front door.
+
+The Breakdown
+useradd: This is the "Create User" button.
+
+-s /sbin/nologin: This is the "Lock the Door" part. It tells the system: "If this user tries to log in with a screen and keyboard, tell them 'No' and kick them out."
+
+jim: The name of the account.
+
+Why do this?
+Imagine you have a Robot Vacuum (a background service).
+
+The vacuum needs an account so it has permission to move around your digital floor.
+
+However, the vacuum doesn't have fingers or a brain—it never needs to "log in" to type commands.
+
+By using /sbin/nologin, you ensure that if a hacker figures out Jim's password, they still can't get in because the "front door" is nailed shut.
+
+How it looks in the system files
+When you run grep jim /etc/passwd, you are just checking the "ID Card" of the user you just made:
+
+jim : x : 1002 : 1002 : : /home/jim : /sbin/nologin
+
+Name: Jim
+
+Home: Where his files live (/home/jim)
+
+The Shell: The gatekeeper (/sbin/nologin). If this said /bin/bash, Jim could log in. Since it says nologin, he's blocked.
+
+Summary
+Goal: Create a user for a program/service to use.
+
+Security: Prevents a human from ever using that name to log into the server.
+
+Politeness: If someone tries to log in as Jim, the system will literally display: "This account is currently not available."
