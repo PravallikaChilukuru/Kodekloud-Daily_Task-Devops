@@ -19,6 +19,9 @@ Non-interactive shell useradditon:
 	/sbin/nologin shell is a "polite" way to refuse a login. This is the standard procedure for service accounts like backup agents to improve security server.
 
 Solution:
+sudo useradd -s /sbin/nologin jim
+grep jim /etc/passwd   ##Configuration verification ##
+			Expected O/P: jim:x:1002:1002::/home/jim:/sbin/nologin
 
 
 Explanation:
