@@ -52,10 +52,8 @@ jim:x:1002:1002::/home/jim:/sbin/nologin
 
 ### 💡 Why do we do this?
 
-> #### 🤖 The Robot Vacuum Analogy
-> Imagine you have a **Robot Vacuum** at home.
->
-> * **Permissions:** It needs access to move around your floors and clean (the "backup tool" working).
-> * **No Access:** It **never** needs a key to your front door because it never leaves or enters manually.
->
-> By using `/sbin/nologin`, you are giving the "Vacuum" access to work inside the system, but you are **nailing the front door shut**. Even if a hacker steals the vacuum's "ID," they cannot use it to "walk in" and take control of the house.
+#### 🤖 The Robot Vacuum Analogy
+Imagine you have a **Robot Vacuum** at home.
+* **Permissions:** It needs access to move around your floors and clean (the "backup tool" working).
+* **No Access:** It **never** needs a key to your front door because it never leaves or enters manually.
+By using `/sbin/nologin`, you are giving the "Vacuum" access to work inside the system, but you are **nailing the front door shut**. Even if a hacker steals the vacuum's "ID," they cannot use it to "walk in" and take control of the house.
