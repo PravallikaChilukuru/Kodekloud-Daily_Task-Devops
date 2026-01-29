@@ -45,11 +45,11 @@ jim:x:1002:1002::/home/jim:/sbin/nologin
 
 🔍 Detailed Explanation
 The Breakdown
-useradd: The "Create User" button.
+## useradd: The "Create User" button.
 
--s /sbin/nologin: The "Lock the Door" part. It tells the system: "If this user tries to log in with a screen and keyboard, tell them 'No' and kick them out."
+## -s /sbin/nologin: The "Lock the Door" part. It tells the system: "If this user tries to log in with a screen and keyboard, tell them 'No' and kick them out."
 
-jim: The account name.
+## jim: The account name.
 
 ### Why do this?
 Imagine you have a Robot Vacuum (a background service).
