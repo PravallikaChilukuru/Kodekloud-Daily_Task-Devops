@@ -29,16 +29,19 @@ To accommodate the backup agent tool's specifications, the system admin team at 
 Use the `-s` flag to specify the non-login shell.
 ```bash
 sudo useradd -s /sbin/nologin jim
-
+```
 ### Step 2: Configuration Verification
 Check the user entry in the system password file.
 
 ```bash
 
 grep jim /etc/passwd
+```
 Expected Output:
 
+```bash
 jim:x:1002:1002::/home/jim:/sbin/nologin
+```
 
 🔍 Detailed Explanation
 The Breakdown
@@ -48,7 +51,7 @@ useradd: The "Create User" button.
 
 jim: The account name.
 
-Why do this?
+### Why do this?
 Imagine you have a Robot Vacuum (a background service).
 
 The vacuum needs an account so it has permission to move around your digital floor.
