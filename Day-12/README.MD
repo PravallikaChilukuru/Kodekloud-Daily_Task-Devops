@@ -53,20 +53,13 @@ Step 7: Configuration verification
 curl -I http://stapp01:3000
 ```
 
-## 💡 Why This Worked
-🚪 The Bouncer Analogy
+### 💡 Why This Worked
 
-# Your server is a club.
-# Apache is the host at Table 8088.
-
-# The Conflict:
-  - Sendmail was already sitting at Table 8088. We had to ask Sendmail to leave.
-
-# The Bouncer:
- > The firewall bouncer had a rule: "If they aren't on the list, kick them out."
-
-# The Fix:
-  > We put Table 8088 at the very top of the bouncer's list.
-  > Now, when a guest (Jump Host) arrives, they are allowed in immediately.
+> #### 🚪 The Bouncer Analogy
+> Your server is a **Club**. **Apache** is the host waiting at **Table 8088**.
+>
+> * **The Conflict:** **Sendmail** was already sitting at Table 8088. We had to ask Sendmail to leave (stop the service) so Apache could sit down.
+> * **The Bouncer:** The **Firewall** bouncer had a rule: *"If they aren't on the list, kick them out."* Because the "Reject" rule was at the top, the bouncer was kicking guests out before checking for Apache.
+> * **The Fix:** We put **Table 8088** at the very **top** of the bouncer's list (`iptables -I`). Now, when a guest (**Jump Host**) arrives, they are recognized and allowed in immediately.
 
 
